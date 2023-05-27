@@ -1,37 +1,36 @@
 from flask import Flask, request, jsonify
 import traceback
 import pandas as pd
-import pickle
+from joblib import load
+from preprocess import PreprocessData
+from sklearn.base import BaseEstimator, TransformerMixin
 
 # App definition
 app = Flask(__name__)
 
 # Importing models
-with open('model_columns.pkl', 'rb') as file:
-    model_columns = pickle.load(file)
-
-with open('process_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+model_columns = load('notebooks/model_columns.joblib')
+model = load('notebooks/process_model.joblib')
 
 @app.route('/')
 def welcome():
     return "Welcome! Use the below application for loan prediction"
 
-@app.route('/predict', methods=['POST','GET'])
+@app.route('/predict', methods=['POST', 'GET'])
 def predict():
     if request.method == 'GET':
-        return "Prediction page. Try inputting your parameters to get specific prediction."
+        return "Prediction page. Try inputting your parameters to get a specific prediction."
 
     if request.method == 'POST':
         try:
             json_ = request.json
             query = pd.DataFrame(json_)
             query = query.reindex(columns=model_columns, fill_value=0)
-                
+
             prediction = list(model.predict(query))
 
             return jsonify({
-                "prediction":str(prediction)
+                "prediction": str(prediction)
             })
 
         except:
