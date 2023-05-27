@@ -40,3 +40,8 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+# push this app to git repo and then clone the whole repository on the AWS terminal
+# make new AWS2 instance - install python (sudo app python) - clone repo apt-get
+# On AWS instancw run app.py (then get that instances IP address) send a request http:get request
