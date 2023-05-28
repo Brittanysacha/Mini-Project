@@ -121,7 +121,7 @@ The model's performance was evaluated using the following metrics:
 - Recall: The recall value, also known as sensitivity, was 83.75%, indicating a high ability of the model to correctly detect loan approvals among all actual positive cases.
 - F1-Score: The F1-score, which is the harmonic mean of precision and recall, was 78.82%. This balanced measure highlights the model's overall performance in capturing both precision and recall.
 
-![Metrics)]()
+![Metrics)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Metric%20Success.png)
 
 These performance metrics provide insights into the model's ability to predict loan approval outcomes accurately and effectively.
 
