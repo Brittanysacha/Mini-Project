@@ -30,15 +30,17 @@ The next step of the project involved conducting Exploratory Data Analysis (EDA)
 
 During the analysis, the loan amount distribution was examined and found to exhibit non-normal behavior, with a significant right-skew and presence of extreme values. 
 
-![Image Description](image_path)
+![Applicant distribution (no log)](image_path)
+
+![Co-applicant distribution (no log)](image_path)
 
 To address this, a log transformation was applied to create a more balanced distribution by smoothing out the extreme values.
 
-![Image Description](image_path)
+![Combined income distribution (with log transformation)](image_path)
 
 In addition, a pivot chart analysis was performed to explore factors influencing loan approval. 
 
-![Image Description](image_path)
+![Pivot Chart Loan Factors](image_path)
 
 The results indicated that gender, marital status, dependents, education level, and credit history had a substantial impact on the likelihood of loan approval. Specifically, being male, married, having no dependents, holding a graduate degree, and having a credit history were associated with higher approval rates. Surprisingly, the type of property and the number of children showed minimal influence on loan approval.
 
