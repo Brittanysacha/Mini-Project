@@ -89,10 +89,6 @@ To make a loan prediction, the API requires input parameters such as gender, mar
 
 Detailed documentation for the Loan Prediction API can be found in the `AWS_API_Loan.md` file in the project repository.
 
-## Results
-
-
-
 ## Results/Demo
 
 ### Important Features
@@ -103,11 +99,12 @@ For example, a loan request with a male applicant who is married, has 2 dependen
 
 ![AWS Instance]()
 
-![Local Innstance)]()
 
 These test results demonstrate the functionality and accuracy of the Loan Prediction API in predicting loan approval based on the provided input parameters.
 
-From the predictive model, several important features were identified for determining loan approval:
+From the predictive model, several important features were identified for determining loan approval. These were determine from the output of the model decision tree:
+
+![Decision Tree]()
 
 - Credit History: Having or not having a credit history was found to be the most significant factor, accounting for 42% of the variance in loan approval decisions.
 - Property Area: The property area, including urban, semiurban, and rural locations, also played a significant role in loan approval.
@@ -123,6 +120,8 @@ The model's performance was evaluated using the following metrics:
 - Precision: With a precision of 74.44%, the model demonstrated a relatively good ability to accurately identify loan approvals among all cases predicted as positive.
 - Recall: The recall value, also known as sensitivity, was 83.75%, indicating a high ability of the model to correctly detect loan approvals among all actual positive cases.
 - F1-Score: The F1-score, which is the harmonic mean of precision and recall, was 78.82%. This balanced measure highlights the model's overall performance in capturing both precision and recall.
+
+![Metrics)]()
 
 These performance metrics provide insights into the model's ability to predict loan approval outcomes accurately and effectively.
 
