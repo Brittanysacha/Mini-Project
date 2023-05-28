@@ -30,17 +30,17 @@ The next step of the project involved conducting Exploratory Data Analysis (EDA)
 
 During the analysis, the loan amount distribution was examined and found to exhibit non-normal behavior, with a significant right-skew and presence of extreme values. 
 
-![Applicant distribution (no log)](image_path)
+![Applicant distribution (no log)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Applicant%20distribution%20(no%20log).png)
 
-![Co-applicant distribution (no log)](image_path)
+![Co-applicant distribution (no log)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Co-applicant%20distribution%20(no%20log).png)
 
 To address this, a log transformation was applied to create a more balanced distribution by smoothing out the extreme values.
 
-![Combined income distribution (with log transformation)](image_path)
+![Combined income distribution (with log transformation)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Combined%20income%20distribution%20(with%20log%20transformation).png)
 
 In addition, a pivot chart analysis was performed to explore factors influencing loan approval. 
 
-![Pivot Chart Loan Factors](image_path)
+![Pivot Chart Loan Factors](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Pivot%20Chart%20EDA.png)
 
 The results indicated that gender, marital status, dependents, education level, and credit history had a substantial impact on the likelihood of loan approval. Specifically, being male, married, having no dependents, holding a graduate degree, and having a credit history were associated with higher approval rates. Surprisingly, the type of property and the number of children showed minimal influence on loan approval.
 
@@ -49,12 +49,44 @@ Despite potential arguments for bias, all columns, including gender and marital 
 These findings from the EDA, log transformation, pivot chart analysis, and decision to retain all columns contribute to a thorough understanding of the dataset and provide valuable insights for loan approval processes.
 
 ## Process
-(fill in what you did during EDA, cleaning, feature engineering, modeling, deployment, testing)
-### (your step 1)
-### (your step 2)
+
+### Data Cleaning
+The next step in the data analysis process involved data cleaning to address missing values in the dataset. Rather than discarding rows with missing values or imputing them with simple measures like mean or mode, a combination of techniques such as K-nearest neighbors (KNN) and logistic regression was used to impute the missing values. This approach was chosen to maintain the integrity of the data and prevent potential bias.
+
+### Data Wrangling
+Following data cleaning, the focus shifted to data wrangling. Categorical variables were transformed into binary representations, where applicable, by assigning values of 0 or 1. For variables with more than two options, label encoding was employed to encode them into numerical values.
+
+### Feature Engineering
+In the feature engineering phase, several transformations were applied. Log transformations were performed on certain variables to normalize their distributions and handle skewness. Additionally, income variables were combined to create a comprehensive measure of total income. The loan term was transformed into three categories: short-term (less than 5 years), medium-term (5-10 years), and long-term (10 years or more).
+
+### Model Building
+Moving on to model building, a random forest classifier was selected as the predictive model. This ensemble learning method utilizes multiple decision trees to make accurate predictions.
+
+### Model Testing
+Finally, in the model testing stage, a pipeline was constructed to streamline the data preprocessing and modeling steps. The pipeline was evaluated to assess its performance in accurately predicting the probability of a loan being approved or not approved.
+
 
 ## Results/Demo
-(fill in your model's performance, details about the API you created, and (optional) a link to an live demo)
+
+### Important Features
+From the predictive model, several important features were identified for determining loan approval:
+
+- Credit History: Having or not having a credit history was found to be the most significant factor, accounting for 42% of the variance in loan approval decisions.
+- Property Area: The property area, including urban, semiurban, and rural locations, also played a significant role in loan approval.
+- Marital Status, Dependents, Education: These demographic factors were found to be influential in the loan approval process.
+- Loan Term: The duration of the loan term, categorized into short-term, medium-term, and long-term, was identified as another important feature.
+
+The decision tree algorithm learned different combinations of these features to classify loan applicants as eligible (class Y) or not eligible (class N) based on the available data.
+
+### Performance Metrics
+The model's performance was evaluated using the following metrics:
+
+- Accuracy: The model achieved an accuracy of 70.73%, indicating that it correctly predicted the loan approval status for approximately 70.73% of the cases.
+- Precision: With a precision of 74.44%, the model demonstrated a relatively good ability to accurately identify loan approvals among all cases predicted as positive.
+- Recall: The recall value, also known as sensitivity, was 83.75%, indicating a high ability of the model to correctly detect loan approvals among all actual positive cases.
+- F1-Score: The F1-score, which is the harmonic mean of precision and recall, was 78.82%. This balanced measure highlights the model's overall performance in capturing both precision and recall.
+
+These performance metrics provide insights into the model's ability to predict loan approval outcomes accurately and effectively.
 
 ## Challanges 
 (discuss challenges you faced in the project)
