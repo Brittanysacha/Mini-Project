@@ -4,6 +4,7 @@ import pandas as pd
 from joblib import load
 from notebooks.preprocess import PreprocessData, DropAndRenameColumns
 from sklearn.base import BaseEstimator, TransformerMixin
+from flask import render_template
 
 # App definition
 app = Flask(__name__)
@@ -15,6 +16,10 @@ model = load('notebooks/process_model.joblib')
 @app.route('/')
 def welcome():
     return "Welcome! Use the below application for loan prediction"
+
+@app.route('/predict.html')  # Add this new route
+def show_predict_form():
+    return render_template('predict.html')
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():

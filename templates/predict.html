@@ -1,0 +1,121 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Loan Prediction</title>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        </head>
+        <body>
+            <h1>Loan Prediction</h1>
+            <form id="loanForm">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender"><br>
+
+                <label for="married">Married:</label>
+                <input type="text" id="married" name="married"><br>
+
+                <label for="dependents">Dependents:</label>
+                <input type="text" id="dependents" name="dependents"><br>
+
+                <label for="education">Education:</label>
+                <input type="text" id="education" name="education"><br>
+
+                <label for="self_employed">Self Employed:</label>
+                <input type="text" id="self_employed" name="self_employed"><br>
+
+                <label for="applicant_income">Applicant Income:</label>
+                <input type="text" id="applicant_income" name="applicant_income"><br>
+
+                <label for="coapplicant_income">Coapplicant Income:</label>
+                <input type="text" id="coapplicant_income" name="coapplicant_income"><br>
+
+                <label for="loan_amount">Loan Amount:</label>
+                <input type="text" id="loan_amount" name="loan_amount"><br>
+
+                <label for="loan_amount_term">Loan Amount Term:</label>
+                <input type="text" id="loan_amount_term" name="loan_amount_term"><br>
+
+                <label for="credit_history">Credit History:</label>
+                <input type="text" id="credit_history" name="credit_history"><br>
+
+                <label for="property_area">Property Area:</label>
+                <input type="text" id="property_area" name="property_area"><br>
+
+                <label for="loan_term_category">Loan Term Category:</label>
+                <input type="text" id="loan_term_category" name="loan_term_category"><br>
+
+                <button type="submit">Predict</button>
+            </form>
+
+            <div id="result"></div>
+
+            <script>
+                // Handle form submission event
+                $('#loanForm').submit(function(event) {
+                    event.preventDefault();
+
+                    // Collect user input
+                    var gender = $('#gender').val();
+                    var married = $('#married').val();
+                    var dependents = $('#dependents').val();
+                    var education = $('#education').val();
+                    var self_employed = $('#self_employed').val();
+                    var applicant_income = $('#applicant_income').val();
+                    var coapplicant_income = $('#coapplicant_income').val();
+                    var loan_amount = $('#loan_amount').val();
+                    var loan_amount_term = $('#loan_amount_term').val();
+                    var credit_history = $('#credit_history').val();
+                    var property_area = $('#property_area').val();
+                    var loan_term_category = $('#loan_term_category').val();
+
+                    // Create data object to send in the AJAX request
+                    var data = {
+                        'gender': gender,
+                        'married': married,
+                        'dependents': dependents,
+                        'education': education,
+                        'self_employed': self_employed,
+                        'applicant_income': applicant_income,
+                        'coapplicant_income': coapplicant_income,
+                        'loan_amount': loan_amount,
+                        'loan_amount_term': loan_amount_term,
+                        'credit_history': credit_history,
+                        'property_area': property_area,
+                        'loan_term_category': loan_term_category
+                    };
+
+                    // Send AJAX request to the Flask API endpoint
+                    $.ajax({
+                        url: '/predict',
+                        type: 'GET',
+                        data: data,
+                        success: function(response) {
+                            // Update the result section with the prediction
+                            $('#result').text('Prediction: ' + response.prediction);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                });
+            </script>
+            <footer>
+                <h3>Accepted Inputs:</h3>
+                <ul>
+                    <li>Gender: Male, Female</li>
+                    <li>Married: Yes, No</li>
+                    <li>Dependents: 0, 1, 2, 3+</li>
+                    <li>Education: Graduate, Not Graduate</li>
+                    <li>Self Employed: Yes, No</li>
+                    <li>Applicant Income: Numeric value</li>
+                    <li>Coapplicant Income: Numeric value</li>
+                    <li>Loan Amount: Numeric value</li>
+                    <li>Loan Amount Term: Numeric value (months)</li>
+                    <li>Credit History: 0 (No), 1 (Yes)</li>
+                    <li>Property Area: Rural, Semiurban, Urban</li>
+                    <li>Loan Term Category: Short-term, Long-term</li>
+                </ul>
+            </footer>
+        </body>
+        </html>
+    
