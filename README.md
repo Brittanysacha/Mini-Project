@@ -3,6 +3,9 @@
 ## Project/Goals
 The objective of this project was to create a loan prediction algorithm as a crucial component of a pipeline, with the aim of determining an individual's eligibility for loan approval. This predictive algorithm was intended to be deployed onto an AWS instance.
 
+For a high-level overview, please refer to this [short presentation](https://www.canva.com/design/DAFkClSAw-s/h6af3XX8ehkz54VzbrbA_Q/edit?utm_content=DAFkClSAw-s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
+
+
 ## Hypothesis
 
 Preliminary hypotheses were formulated regarding the factors influencing loan approval for applicants. The following hypotheses were proposed:
@@ -97,14 +100,14 @@ To test the API, various loan prediction scenarios were executed using curl comm
 
 For example, a loan request with a male applicant who is married, has 2 dependents, a graduate education, no self-employment, an applicant income of 5000, no coapplicant income, a loan amount of 128, a loan amount term of 360, a credit history of 1, an urban property area, and a long-term loan term category resulted in a prediction of loan approval (`['Y']`). This was tested in both as a local instance and an AWS instance.
 
-![AWS Instance]()
+![AWS Instance](https://github.com/Brittanysacha/Mini-Project/blob/master/images/ECS%20Instance%20.png)
 
 
 These test results demonstrate the functionality and accuracy of the Loan Prediction API in predicting loan approval based on the provided input parameters.
 
 From the predictive model, several important features were identified for determining loan approval. These were determine from the output of the model decision tree:
 
-![Decision Tree]()
+![Decision Tree](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Decision%20Tree.png)
 
 - Credit History: Having or not having a credit history was found to be the most significant factor, accounting for 42% of the variance in loan approval decisions.
 - Property Area: The property area, including urban, semiurban, and rural locations, also played a significant role in loan approval.
@@ -126,7 +129,13 @@ The model's performance was evaluated using the following metrics:
 These performance metrics provide insights into the model's ability to predict loan approval outcomes accurately and effectively.
 
 ## Challanges 
-(discuss challenges you faced in the project)
+In this project, there were certain limitations that should be taken into consideration. Firstly, the combination of complex cleaning and feature engineering functions within a pipeline posed a significant challenge. It required careful handling to ensure the smooth integration of these processes. Additionally, the availability of limited data restricted the use of more sophisticated models. With a smaller dataset, there was a need to exercise caution to avoid overfitting and ensure the model's generalizability. Finally, despite implementing imputation techniques to address missing data, the overall accuracy of the results may have been affected by the incompleteness of the available data. This limitation highlights the importance of having comprehensive and reliable data to achieve more accurate predictions.
 
 ## Future Goals
-(what would you do if you had more time? are there any potential issues/biases with your model/use case?)
+In the future, there are several goals that can be pursued to enhance the model and its capabilities. Firstly, running the model on a larger dataset can provide more data points and improve the prediction accuracy. This can be achieved by gathering additional loan application data or expanding the existing dataset.
+
+Another important goal is conducting further hyperparameter tuning. Fine-tuning the model's parameters can optimise its performance and potentially increase the prediction level. This process involves systematically exploring different parameter combinations to identify the optimal settings for the model.
+
+Additionally, exploring advanced techniques such as training models on specific data clusters or leveraging other models can be considered. This approach can potentially capture more nuanced patterns and improve the model's predictive capabilities.
+
+Furthermore, connecting the HTML browser with the AWS instance can enhance the accessibility and usability of the application. This would enable users to access and utilise the loan prediction system remotely, increasing its practicality and reach.
