@@ -82,6 +82,8 @@ The form allows users to input various loan prediction parameters such as gender
 
 The response from the API is displayed on the web page, showing the predicted loan approval status. The portal also includes a footer section that provides a list of accepted inputs for each parameter.
 
+![HTML](https://github.com/Brittanysacha/Mini-Project/blob/master/images/HTML%20Preview.png)
+
 ### API Documentation
 
 The Loan Prediction API provides functionality for predicting loan approval based on user input. It includes two endpoints: `/predict` for handling loan prediction requests and `/predict.html` for rendering the loan prediction form.
