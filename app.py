@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import traceback
 import pandas as pd
 from joblib import load
-from preprocess import PreprocessData, DropAndRenameColumns
+from notebooks.preprocess import PreprocessData, DropAndRenameColumns
 from sklearn.base import BaseEstimator, TransformerMixin
 
 # App definition
