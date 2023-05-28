@@ -1,7 +1,5 @@
 # Mini-project IV
 
-### [Assignment](assignment.md)
-
 ## Project/Goals
 The objective of this project was to create a loan prediction algorithm as a crucial component of a pipeline, with the aim of determining an individual's eligibility for loan approval. This predictive algorithm was intended to be deployed onto an AWS instance.
 
@@ -65,10 +63,50 @@ Moving on to model building, a random forest classifier was selected as the pred
 ### Model Testing
 Finally, in the model testing stage, a pipeline was constructed to streamline the data preprocessing and modeling steps. The pipeline was evaluated to assess its performance in accurately predicting the probability of a loan being approved or not approved.
 
+### Building the Flask Application
+
+The Flask application was developed to provide an interface for loan prediction based on user input. The application utilizes the Flask framework and includes routes to handle different endpoints. The necessary models and preprocessing steps are loaded into the application using the `joblib` library. The `model_columns` file ensures that the input data aligns correctly with the model's feature columns.
+
+The `/predict.html` route renders an HTML form that allows users to input loan prediction parameters. When the form is submitted, it makes a GET request to the `/predict` endpoint.
+
+The `/predict` endpoint handles both GET and POST requests. It retrieves the loan prediction parameters from the request and creates a query DataFrame. The query DataFrame is then transformed to match the model's feature columns. The loan prediction is generated using the loaded model, and the result is returned as a JSON response.
+
+### Building the HTML Portal
+
+The HTML portal, named `predict.html`, provides a user-friendly form for inputting loan prediction parameters. It uses HTML and JavaScript to collect user input and send AJAX requests to the Flask API endpoint.
+
+The form allows users to input various loan prediction parameters such as gender, marital status, education, income, loan amount, and credit history. When the form is submitted, an AJAX request is sent to the `/predict` endpoint, passing the input data as query parameters.
+
+The response from the API is displayed on the web page, showing the predicted loan approval status. The portal also includes a footer section that provides a list of accepted inputs for each parameter.
+
+### API Documentation
+
+The Loan Prediction API provides functionality for predicting loan approval based on user input. It includes two endpoints: `/predict` for handling loan prediction requests and `/predict.html` for rendering the loan prediction form.
+
+The `/predict` endpoint accepts GET and POST requests. For GET requests, the loan prediction parameters are passed as query parameters. For POST requests, the parameters are included in the JSON payload.
+
+To make a loan prediction, the API requires input parameters such as gender, marital status, dependents, education, income, loan amount, loan term, credit history, property area, and loan term category.
+
+Detailed documentation for the Loan Prediction API can be found in the `AWS_API_Loan.md` file in the project repository.
+
+## Results
+
+
 
 ## Results/Demo
 
 ### Important Features
+
+To test the API, various loan prediction scenarios were executed using curl commands. The results showed the predicted loan approval status for different input combinations.
+
+For example, a loan request with a male applicant who is married, has 2 dependents, a graduate education, no self-employment, an applicant income of 5000, no coapplicant income, a loan amount of 128, a loan amount term of 360, a credit history of 1, an urban property area, and a long-term loan term category resulted in a prediction of loan approval (`['Y']`). This was tested in both as a local instance and an AWS instance.
+
+![AWS Instance]()
+
+![Local Innstance)]()
+
+These test results demonstrate the functionality and accuracy of the Loan Prediction API in predicting loan approval based on the provided input parameters.
+
 From the predictive model, several important features were identified for determining loan approval:
 
 - Credit History: Having or not having a credit history was found to be the most significant factor, accounting for 42% of the variance in loan approval decisions.
