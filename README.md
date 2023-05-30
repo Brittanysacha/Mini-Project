@@ -1,7 +1,7 @@
 # Mini-project IV
 
 ## Project/Goals
-The objective of this project was to create a loan prediction algorithm as a crucial component of a pipeline, with the aim of determining an individual's eligibility for loan approval. This predictive algorithm was intended to be deployed onto an AWS instance.
+The objective of this project was to create a loan prediction algorithm as a crucial component of a pipeline, with the aim of determining an individual's eligibility for loan approval. This predictive algorithm was intended to be deployed locally and as a AWS instance.
 
 For a high-level overview, please refer to this [short presentation](https://www.canva.com/design/DAFkClSAw-s/h6af3XX8ehkz54VzbrbA_Q/edit?utm_content=DAFkClSAw-s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
@@ -24,30 +24,29 @@ Preliminary hypotheses were formulated regarding the factors influencing loan ap
 - **Hypothesis 9:** Applicants with a shorter loan amount term that results in higher monthly payments are less likely to receive a loan due to the potential strain on their financial resources and their ability to manage higher payment obligations, making it less attractive for banks as the interest received may be lower and may not outweigh the associated risks.
 - **Hypothesis 10:** Applicants without a credit history are less likely to receive a loan as there is no prior evidence to assess their creditworthiness and repayment behavior.
 
-To test these hypotheses, exploratory data analysis (EDA) will be conducted on the loan data, examining the relationship between these factors and loan approval. Additionally, machine learning algorithms will be applied to develop a loan prediction model based on the identified factors. The accuracy of the model will be assessed using appropriate evaluation metrics, and cross-validation techniques will be employed to ensure robustness.
+To test these hypotheses, exploratory data analysis (EDA) was conducted on the loan data, examining the relationship between different demographic and personal factors and loan approval. This analysis will guide further machine learning algorithm development in an attept to create an accurate loan prediction model. The accuracy of the model will be assessed using appropriate evaluation metrics, and cross-validation techniques will be employed to ensure robustness.
 
 ## EDA 
-The next step of the project involved conducting Exploratory Data Analysis (EDA) to gain deeper insights into individuals' information from loan applications. 
+This stage of the project entailed conducting Exploratory Data Analysis (EDA) to gain deeper insights into individuals' information from loan applications. Some key insights from this process, are displayed below.
 
-During the analysis, the loan amount distribution was examined and found to exhibit non-normal behavior, with a significant right-skew and presence of extreme values. 
+**1.)**  During the analysis, the loan amount distribution was examined and found to exhibit non-normal behavior, with a significant right-skew and presence of extreme values. 
 
 ![Applicant distribution (no log)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Applicant%20distribution%20(no%20log).png)
 
 ![Co-applicant distribution (no log)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Co-applicant%20distribution%20(no%20log).png)
 
-To address this, a log transformation was applied to create a more balanced distribution by smoothing out the extreme values.
+**2.)** To address non-normal distribution, a log transformation was applied to create a more balanced distribution by smoothing out the extreme values.
 
 ![Combined income distribution (with log transformation)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Combined%20income%20distribution%20(with%20log%20transformation).png)
 
-In addition, a pivot chart analysis was performed to explore factors influencing loan approval. 
+**3.)** A pivot chart analysis was performed to explore factors influencing loan approval. 
 
 ![Pivot Chart Loan Factors](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Pivot%20Chart%20EDA.png)
 
 The results indicated that gender, marital status, dependents, education level, and credit history had a substantial impact on the likelihood of loan approval. Specifically, being male, married, having no dependents, holding a graduate degree, and having a credit history were associated with higher approval rates. Surprisingly, the type of property and the number of children showed minimal influence on loan approval.
 
-Despite potential arguments for bias, all columns, including gender and marital status, were retained in the analysis. This decision was made to ensure transparency, maintain the dataset's integrity, and enable a comprehensive examination of the data.
-
-These findings from the EDA, log transformation, pivot chart analysis, and decision to retain all columns contribute to a thorough understanding of the dataset and provide valuable insights for loan approval processes.
+**In sum:**
+Despite potential arguments for bias, all columns, including gender and marital status, were retained in the analysis. This decision was made to ensure transparency, maintain the dataset's integrity, and enable a comprehensive examination of the data. The findings from the EDA, log transformation, pivot chart analysis, and decision to retain all columns contribute to a thorough understanding of the dataset and provide valuable insights for loan approval processes.
 
 ## Process
 
@@ -61,42 +60,38 @@ Following data cleaning, the focus shifted to data wrangling. Categorical variab
 In the feature engineering phase, several transformations were applied. Log transformations were performed on certain variables to normalize their distributions and handle skewness. Additionally, income variables were combined to create a comprehensive measure of total income. The loan term was transformed into three categories: short-term (less than 5 years), medium-term (5-10 years), and long-term (10 years or more).
 
 ### Model Building
-Moving on to model building, a random forest classifier was selected as the predictive model. This ensemble learning method utilizes multiple decision trees to make accurate predictions.
+For model building, a random forest classifier was selected as the predictive model. This ensemble learning method utilised multiple decision trees to make accurate predictions.
 
 ### Model Testing
-Finally, in the model testing stage, a pipeline was constructed to streamline the data preprocessing and modeling steps. The pipeline was evaluated to assess its performance in accurately predicting the probability of a loan being approved or not approved.
+In the model testing stage, a pipeline was constructed to streamline the data preprocessing and modeling steps. The pipeline was evaluated to assess its performance in accurately predicting the probability of a loan being approved or not approved.
 
 ### Building the Flask Application
 
-The Flask application was developed to provide an interface for loan prediction based on user input. The application utilizes the Flask framework and includes routes to handle different endpoints. The necessary models and preprocessing steps are loaded into the application using the `joblib` library. The `model_columns` file ensures that the input data aligns correctly with the model's feature columns.
+The Flask application was developed to provide an interface for loan prediction based on user input. The application utilised the Flask framework and included routes to handle different endpoints. The necessary models and preprocessing steps were loaded into the application using the `joblib` library. The `model_columns` file ensures that the input data aligns correctly with the model's feature columns.
 
-The `/predict.html` route renders an HTML form that allows users to input loan prediction parameters. When the form is submitted, it makes a GET request to the `/predict` endpoint.
+The `/predict.html` route rendered an HTML form that allows users to input loan prediction parameters. When the form is submitted, it makes a GET request to the `/predict` endpoint.
 
 The `/predict` endpoint handles both GET and POST requests. It retrieves the loan prediction parameters from the request and creates a query DataFrame. The query DataFrame is then transformed to match the model's feature columns. The loan prediction is generated using the loaded model, and the result is returned as a JSON response.
 
 ### Building the HTML Portal
 
-The HTML portal, named `predict.html`, provides a user-friendly form for inputting loan prediction parameters. It uses HTML and JavaScript to collect user input and send AJAX requests to the Flask API endpoint.
+To try and provide a means to allow access to the form entry more directly, I attempted to build a HTML portal, named `predict.html`. This portal provides a user-friendly form for inputting loan prediction parameters. It uses HTML and JavaScript to collect user input and send AJAX requests to the Flask API endpoint.
 
 The form allows users to input various loan prediction parameters such as gender, marital status, education, income, loan amount, and credit history. When the form is submitted, an AJAX request is sent to the `/predict` endpoint, passing the input data as query parameters.
 
-The response from the API is displayed on the web page, showing the predicted loan approval status. The portal also includes a footer section that provides a list of accepted inputs for each parameter.
+The intention behind this portal was to make sure a response from the API was displayed on the web page when hitting submit, showing the predicted loan approval status. The portal also included a footer section that provides a list of accepted inputs for each parameter. Further steps would need to be taken to connect the AWS instance to the HTML portal.
 
 ![HTML](https://github.com/Brittanysacha/Mini-Project/blob/master/images/HTML%20Preview.png)
 
 ### API Documentation
 
-The Loan Prediction API provides functionality for predicting loan approval based on user input. It includes two endpoints: `/predict` for handling loan prediction requests and `/predict.html` for rendering the loan prediction form.
-
-The `/predict` endpoint accepts GET and POST requests. For GET requests, the loan prediction parameters are passed as query parameters. For POST requests, the parameters are included in the JSON payload.
+I further created an API documentation [markdown](https://github.com/Brittanysacha/Mini-Project/blob/master/templates/AWS_API_Loan.md). The Loan Prediction API provides functionality for predicting loan approval based on user input. It includes two endpoints: `/predict` for handling loan prediction requests and `/predict.html` for rendering the loan prediction form.
 
 To make a loan prediction, the API requires input parameters such as gender, marital status, dependents, education, income, loan amount, loan term, credit history, property area, and loan term category.
 
-Detailed documentation for the Loan Prediction API can be found in the `AWS_API_Loan.md` file in the project repository.
-
 ## Results/Demo
 
-### Important Features
+### Local and AWS Deployment
 
 To test the API, various loan prediction scenarios were executed using curl commands. The results showed the predicted loan approval status for different input combinations.
 
@@ -104,9 +99,9 @@ For example, a loan request with a male applicant who is married, has 2 dependen
 
 ![AWS Instance](https://github.com/Brittanysacha/Mini-Project/blob/master/images/ECS%20Instance%20.png)
 
-
 These test results demonstrate the functionality and accuracy of the Loan Prediction API in predicting loan approval based on the provided input parameters.
 
+### Important Features
 From the predictive model, several important features were identified for determining loan approval. These were determine from the output of the model decision tree:
 
 ![Decision Tree](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Decision%20Tree.png)
@@ -131,7 +126,9 @@ The model's performance was evaluated using the following metrics:
 These performance metrics provide insights into the model's ability to predict loan approval outcomes accurately and effectively.
 
 ## Challanges 
-In this project, there were certain limitations that should be taken into consideration. Firstly, the combination of complex cleaning and feature engineering functions within a pipeline posed a significant challenge. It required careful handling to ensure the smooth integration of these processes. Additionally, the availability of limited data restricted the use of more sophisticated models. With a smaller dataset, there was a need to exercise caution to avoid overfitting and ensure the model's generalizability. Finally, despite implementing imputation techniques to address missing data, the overall accuracy of the results may have been affected by the incompleteness of the available data. This limitation highlights the importance of having comprehensive and reliable data to achieve more accurate predictions.
+In this project, there were certain limitations that should be taken into consideration. Firstly, the combination of complex cleaning and feature engineering functions within a pipeline posed a significant challenge. It required careful handling to ensure the smooth integration of these processes, as well as a lot of debugging to make sure the different elements occered in the right order and fit together.
+
+Additionally, the availability of limited data restricted the use of more sophisticated models. With a smaller dataset, there was a need to exercise caution to avoid overfitting and ensure the model's generalizability. Finally, despite implementing imputation techniques to address missing data, the overall accuracy of the results may have been affected by the incompleteness of the available data. This limitation highlights the importance of having comprehensive and reliable data to achieve more accurate predictions.
 
 ## Future Goals
 In the future, there are several goals that can be pursued to enhance the model and its capabilities. Firstly, running the model on a larger dataset can provide more data points and improve the prediction accuracy. This can be achieved by gathering additional loan application data or expanding the existing dataset.
