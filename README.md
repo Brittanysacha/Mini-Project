@@ -144,20 +144,27 @@ The model's performance was evaluated using the following metrics:
 
 These performance metrics provide insights into the model's ability to predict loan approval outcomes accurately and effectively.
 
-## Challanges 
-In this project, there were certain limitations that should be taken into consideration. Firstly, the combination of complex cleaning and feature engineering functions within a pipeline posed a significant challenge. It required careful handling to ensure the smooth integration of these processes, as well as a lot of debugging to make sure the different elements occered in the right order and fit together.
+### Challenges
 
-Additionally, the availability of limited data restricted the use of more sophisticated models. With a smaller dataset, there was a need to exercise caution to avoid overfitting and ensure the model's generalizability. Finally, despite implementing imputation techniques to address missing data, the overall accuracy of the results may have been affected by the incompleteness of the available data. This limitation highlights the importance of having comprehensive and reliable data to achieve more accurate predictions.
+In this project, there were certain limitations that should be taken into consideration:
 
-## Future Goals
-In the future, there are several goals that can be pursued to enhance the model and its capabilities. Firstly, running the model on a larger dataset can provide more data points and improve the prediction accuracy. This can be achieved by gathering additional loan application data or expanding the existing dataset.
+- The combination of complex cleaning and feature engineering functions within a pipeline posed a significant challenge. It required careful handling to ensure the smooth integration of these processes, as well as extensive debugging to ensure the correct order and alignment of the different elements.
 
-Another important goal is conducting further hyperparameter tuning. Fine-tuning the model's parameters can optimise its performance and potentially increase the prediction level. This process involves systematically exploring different parameter combinations to identify the optimal settings for the model.
+- The availability of limited data restricted the use of more sophisticated models. With a smaller dataset, it was necessary to exercise caution to avoid overfitting and ensure the generalizability of the model.
 
-Additionally, exploring advanced techniques such as training models on specific data clusters or leveraging other models can be considered. This approach can potentially capture more nuanced patterns and improve the model's predictive capabilities.
+- Despite implementing imputation techniques to address missing data, the overall accuracy of the results may have been affected by the incompleteness of the available data. This limitation highlights the importance of having comprehensive and reliable data to achieve more accurate predictions.
 
-Furthermore, connecting the HTML browser with the AWS instance can enhance the accessibility and usability of the application. This would enable users to access and utilise the loan prediction system remotely, increasing its practicality and reach.
+### Future Goals
 
+In the future, there are several goals that can be pursued to enhance the model and its capabilities:
+
+- Running the model on a larger dataset can provide more data points and improve the prediction accuracy. This can be achieved by gathering additional loan application data or expanding the existing dataset.
+
+- Conducting further hyperparameter tuning can optimize the model's performance and potentially increase the prediction level. This involves systematically exploring different parameter combinations to identify the optimal settings for the model.
+
+- Exploring advanced techniques such as training models on specific data clusters or leveraging other models can be considered. This approach can potentially capture more nuanced patterns and improve the model's predictive capabilities.
+
+- Connecting the HTML browser with the AWS instance can enhance the accessibility and usability of the application. Enabling remote access to the loan prediction system would increase its practicality and reach.
 
 For a high-level overview, please refer to this [short presentation](https://www.canva.com/design/DAFkClSAw-s/h6af3XX8ehkz54VzbrbA_Q/edit?utm_content=DAFkClSAw-s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
