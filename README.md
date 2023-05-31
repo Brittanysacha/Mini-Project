@@ -123,8 +123,6 @@ These test results demonstrate the functionality and accuracy of the Loan Predic
 ### Important Features
 From the predictive model, several important features were identified for determining loan approval. These were determine from the output of the model decision tree:
 
-![Decision Tree](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Decision%20Tree.png)
-
 - Credit History: Having or not having a credit history was found to be the most significant factor, accounting for 42% of the variance in loan approval decisions.
 - Property Area: The property area, including urban, semiurban, and rural locations, also played a significant role in loan approval.
 - Marital Status, Dependents, Education: These demographic factors were found to be influential in the loan approval process.
@@ -139,8 +137,6 @@ The model's performance was evaluated using the following metrics:
 - Precision: With a precision of 74.44%, the model demonstrated a relatively good ability to accurately identify loan approvals among all cases predicted as positive.
 - Recall: The recall value, also known as sensitivity, was 83.75%, indicating a high ability of the model to correctly detect loan approvals among all actual positive cases.
 - F1-Score: The F1-score, which is the harmonic mean of precision and recall, was 78.82%. This balanced measure highlights the model's overall performance in capturing both precision and recall.
-
-![Metrics)](https://github.com/Brittanysacha/Mini-Project/blob/master/images/Metric%20Success.png)
 
 These performance metrics provide insights into the model's ability to predict loan approval outcomes accurately and effectively.
 
