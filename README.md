@@ -84,7 +84,7 @@ For model building, a random forest classifier was selected as the predictive mo
 ### Model Testing
 In the model testing stage, a pipeline was constructed to streamline the data preprocessing and modeling steps. The pipeline was evaluated to assess its performance in accurately predicting the probability of a loan being approved or not approved.
 
-### Building the Flask Application
+## Building the Flask Application
 
 The Flask application was developed to provide an interface for loan prediction based on user input. The application utilised the Flask framework and included routes to handle different endpoints. The necessary models and preprocessing steps were loaded into the application using the `joblib` library. The `model_columns` file ensures that the input data aligns correctly with the model's feature columns.
 
@@ -92,13 +92,13 @@ The `/predict.html` route rendered an HTML form that allows users to input loan 
 
 The `/predict` endpoint handles both GET and POST requests. It retrieves the loan prediction parameters from the request and creates a query DataFrame. The query DataFrame is then transformed to match the model's feature columns. The loan prediction is generated using the loaded model, and the result is returned as a JSON response.
 
-### Building the HTML Portal
+## Building the HTML Portal
 
-To try and provide a means to allow access to the form entry more directly, I attempted to build a HTML portal, named `predict.html`. This portal provides a user-friendly form for inputting loan prediction parameters. It uses HTML and JavaScript to collect user input and send AJAX requests to the Flask API endpoint.
+To provide a more user-friendly form for inputting loan prediction parameters, an HTML portal named `predict.html` was created. This portal utilises HTML and JavaScript to collect user input and send AJAX requests to the Flask API endpoint.
 
 The form allows users to input various loan prediction parameters such as gender, marital status, education, income, loan amount, and credit history. When the form is submitted, an AJAX request is sent to the `/predict` endpoint, passing the input data as query parameters.
 
-The intention behind this portal was to make sure a response from the API was displayed on the web page when hitting submit, showing the predicted loan approval status. The portal also included a footer section that provides a list of accepted inputs for each parameter. Further steps would need to be taken to connect the AWS instance to the HTML portal.
+The intention behind this portal was to display the predicted loan approval status on the web page after hitting submit. The portal also includes a footer section that provides a list of accepted inputs for each parameter. Further steps would need to be taken to connect the AWS instance to the HTML portal.
 
 ![HTML](https://github.com/Brittanysacha/Mini-Project/blob/master/images/HTML%20Preview.png)
 
