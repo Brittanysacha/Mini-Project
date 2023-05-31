@@ -1,10 +1,28 @@
-# Mini-project IV
+# Mini-project II
 
-## Project/Goals
+## Project Goals
 The objective of this project was to create a loan prediction algorithm as a crucial component of a pipeline, with the aim of determining an individual's eligibility for loan approval. This predictive algorithm was intended to be deployed locally and as a AWS instance.
 
-For a high-level overview, please refer to this [short presentation](https://www.canva.com/design/DAFkClSAw-s/h6af3XX8ehkz54VzbrbA_Q/edit?utm_content=DAFkClSAw-s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
-
+## Table of Contents
+1. [Hypothesis](##Hypothesis)
+   - [Applicants more likely to be approved for a loan](### Applicants more likely to be approved for a loan:)
+   - [Applicants less likely to be approved for a loan](### Applicants less likely to be approved for a loan:)
+2. [EDA](## EDA)
+3. [Process](## Process)
+   - [Data Cleaning](### Data Cleaning)
+   - [Data Wrangling](### Data Wrangling)
+   - [Feature Engineering](### Feature Engineering)
+   - [Model Building](### Model Building)
+   - [Model Testing](### Model Testing)
+   - [Building the Flask Application](### Building the Flask Application)
+   - [Building the HTML Portal](### Building the HTML Portal)
+   - [API Documentation](### API Documentation)
+4. [Results](## Results)
+   - [Local and AWS Deployment](### Local and AWS Deployment)
+   - [Important Features](### Important Features)
+   - [Performance Metrics](### Performance Metrics)
+5. [Challenges](## Challenges)
+6. [Future Goals](## Future Goals)
 
 ## Hypothesis
 
@@ -89,7 +107,7 @@ I further created an API documentation [markdown](https://github.com/Brittanysac
 
 To make a loan prediction, the API requires input parameters such as gender, marital status, dependents, education, income, loan amount, loan term, credit history, property area, and loan term category.
 
-## Results/Demo
+## Results
 
 ### Local and AWS Deployment
 
@@ -138,3 +156,7 @@ Another important goal is conducting further hyperparameter tuning. Fine-tuning 
 Additionally, exploring advanced techniques such as training models on specific data clusters or leveraging other models can be considered. This approach can potentially capture more nuanced patterns and improve the model's predictive capabilities.
 
 Furthermore, connecting the HTML browser with the AWS instance can enhance the accessibility and usability of the application. This would enable users to access and utilise the loan prediction system remotely, increasing its practicality and reach.
+
+
+For a high-level overview, please refer to this [short presentation](https://www.canva.com/design/DAFkClSAw-s/h6af3XX8ehkz54VzbrbA_Q/edit?utm_content=DAFkClSAw-s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
+
