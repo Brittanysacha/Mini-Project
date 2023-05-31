@@ -104,9 +104,18 @@ The intention behind this portal was to display the predicted loan approval stat
 
 ### API Documentation
 
-I further created an API documentation [markdown](https://github.com/Brittanysacha/Mini-Project/blob/master/templates/AWS_API_Loan.md). The Loan Prediction API provides functionality for predicting loan approval based on user input. It includes two endpoints: `/predict` for handling loan prediction requests and `/predict.html` for rendering the loan prediction form.
+Full API documentation can be accessed [here](https://github.com/Brittanysacha/Mini-Project/blob/master/templates/AWS_API_Loan.md).  The Loan Prediction API provides functionality for predicting loan approval based on user input. It includes two endpoints:
 
-To make a loan prediction, the API requires input parameters such as gender, marital status, dependents, education, income, loan amount, loan term, credit history, property area, and loan term category.
+#### /predict
+
+The `/predict` endpoint is responsible for handling loan prediction requests. To make a loan prediction, the API requires input parameters such as gender, marital status, dependents, education, income, loan amount, loan term, credit history, property area, and loan term category.
+
+#### /predict.html
+
+The `/predict.html` endpoint is responsible for rendering the loan prediction form. This form allows users to input the necessary parameters for loan prediction, including gender, marital status, dependents, education, income, loan amount, loan term, credit history, property area, and loan term category.
+
+By accessing these endpoints, users can interact with the Loan Prediction API and obtain loan approval predictions based on the provided input parameters.
+
 
 ## Results
 
